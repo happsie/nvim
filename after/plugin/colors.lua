@@ -1,4 +1,3 @@
---[[
 function ColorMyPencils(color)
 	color = color or "rose-pine"
 	vim.cmd.colorscheme(color)
@@ -8,4 +7,3 @@ function ColorMyPencils(color)
 end
 
 ColorMyPencils()
-]]

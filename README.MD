@@ -38,6 +38,8 @@
 | Ctrl-o        | go back from gd     |
 | /             | search in file      |
 | n             | go to next (/)      |
+| o             | add new line under  |
+| O             | add new line above  |
 
 ## cmd
 | Key           | Description         |

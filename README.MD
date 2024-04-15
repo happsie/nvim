@@ -23,7 +23,9 @@
 6. run `:TSUpdate` 
 
 
-## keybinds
+## keybinds (normal mode)
+leader: <space>
+
 | Key           | Description         |
 | ------------- | ------------------- |
 | Space-a       | add to harpoon      |
@@ -40,6 +42,17 @@
 | n             | go to next (/)      |
 | o             | add new line under  |
 | O             | add new line above  |
+| Space-s       | replace str         |
+| Space-f       | format file         |
+| Ctrl-c        | <Esc>               |
+
+## keybinds (visual mode)
+| Key           | Description         |
+| ------------- | ------------------- |
+| vis: J        | move code down      |
+| vis: K        | move code up        |
+
+
 
 ## cmd
 | Key           | Description         |

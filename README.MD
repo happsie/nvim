@@ -44,7 +44,8 @@ leader: <space>
 | O             | add new line above  |
 | Space-s       | replace str         |
 | Space-f       | format file         |
-| Ctrl-c        | <Esc>               |
+| Ctrl-c        | Esc                 |
+| Ctrl-ww       | switch to quickfix  |
 
 ## keybinds (visual mode)
 | Key           | Description         |

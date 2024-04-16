@@ -46,6 +46,7 @@ leader: <space>
 | Space-f       | format file         |
 | Ctrl-c        | Esc                 |
 | Ctrl-ww       | switch to quickfix  |
+| Space-q       | open quickfix       |
 
 ## keybinds (visual mode)
 | Key           | Description         |

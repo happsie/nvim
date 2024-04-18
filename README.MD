@@ -37,6 +37,7 @@ leader: <space>
 | vib           | select inside ""/() |
 | viB           | select inside {}    |
 | gd            | go to definition    |
+| gr            | find references     |
 | Ctrl-o        | go back from gd     |
 | /             | search in file      |
 | n             | go to next (/)      |
@@ -47,14 +48,19 @@ leader: <space>
 | Ctrl-c        | Esc                 |
 | Ctrl-ww       | switch to quickfix  |
 | Space-q       | open quickfix       |
+| K             | hover (tooltip)     |
+| Space-vrn     | rename variable     |
 
 ## keybinds (visual mode)
 | Key           | Description         |
 | ------------- | ------------------- |
-| vis: J        | move code down      |
-| vis: K        | move code up        |
+| J             | move code down      |
+| K             | move code up        |
 
-
+## keybinds (insert mode)
+| Key           | Description              |
+| ------------- | ------------------------ |
+| ctrl-h        | signature help (tooltip) |
 
 ## cmd
 | Key           | Description         |

@@ -50,6 +50,8 @@ leader: <space>
 | Space-q       | open quickfix       |
 | K             | hover (tooltip)     |
 | Space-vrn     | rename variable     |
+| [d            | go to next error    |
+| ]d            | go to prev error    |
 
 ## keybinds (visual mode)
 | Key           | Description         |

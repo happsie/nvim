@@ -34,6 +34,9 @@ leader: <space>
 | Space-pf      | search files        |
 | %             | create file         |
 | d             | create dir          |
+| mt            | target directory    |
+| mf            | file to be moved    |
+| mm            | move file           |
 | vib           | select inside ""/() |
 | viB           | select inside {}    |
 | gd            | go to definition    |

@@ -55,12 +55,17 @@ leader: <space>
 | Space-vrn     | rename variable     |
 | [d            | go to next error    |
 | ]d            | go to prev error    |
+| F             | find next in line * |
+| q{register}   | record macro        | 
+| @{reigster}   | play macro          | 
 
 ## keybinds (visual mode)
-| Key           | Description         |
-| ------------- | ------------------- |
-| J             | move code down      |
-| K             | move code up        |
+| Key           | Description               |
+| ------------- | ------------------------- |
+| J             | move code down            |
+| K             | move code up              |
+| viw           | select word               |
+| viW           | select all text until ws  |
 
 ## keybinds (insert mode)
 | Key           | Description              |

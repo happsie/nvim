@@ -55,9 +55,12 @@ leader: <space>
 | Space-vrn     | rename variable     |
 | [d            | go to next error    |
 | ]d            | go to prev error    |
-| F             | find next in line * |
+| f{var}        | find next in line * |
+| F{var}        | find prev in line * |
 | q{register}   | record macro        | 
 | @{reigster}   | play macro          | 
+| Ctrl+u        | page up             |
+| Ctrl+d        | page down           |
 
 ## keybinds (visual mode)
 | Key           | Description               |

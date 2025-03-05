@@ -61,6 +61,9 @@ leader: <space>
 | @{reigster}   | play macro          | 
 | Ctrl+u        | page up             |
 | Ctrl+d        | page down           |
+| gl            | open diagnostics    |
+| Space-vrr     | variable references |
+| Space-vws     | query all files     |
 
 ## keybinds (visual mode)
 | Key           | Description               |
@@ -80,3 +83,7 @@ leader: <space>
 | ------------- | ------------------- |
 | :Mason        | install lsp/lint/etc|
 | :%/str/re_str | search and replace  |
+| :ccl          | close quickfix list |
+| :copen        | open quickfix list  |
+| :colder       | older quickfix list |
+| :map          | keybinds            |

@@ -62,8 +62,16 @@ leader: <space>
 | Ctrl+u        | page up             |
 | Ctrl+d        | page down           |
 | gl            | open diagnostics    |
+| gr            | references          |
+| gs            | signature tooltip   |
+| go            | type definition     |
+| gi            | goto implementation |
 | Space-vrr     | variable references |
 | Space-vws     | query all files     |
+| Space-q       | open quickfix       |
+| ctrl-w +      | zoom in window      |
+| ctrl-w -      | zoom out window     |
+| ctrl-w j/k/l/h| change window       |
 
 ## keybinds (visual mode)
 | Key           | Description               |
@@ -87,3 +95,6 @@ leader: <space>
 | :copen        | open quickfix list  |
 | :colder       | older quickfix list |
 | :map          | keybinds            |
+| :split        | horizontal win split|
+| :vsplit       | vertical win split  |
+| :close        | close window        |

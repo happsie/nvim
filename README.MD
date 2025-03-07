@@ -72,6 +72,9 @@ leader: <space>
 | ctrl-w +      | zoom in window      |
 | ctrl-w -      | zoom out window     |
 | ctrl-w j/k/l/h| change window       |
+| ctrl-w d      | diagnostic          |
+| gcc           | comment current line|
+| gc            | add comment         |
 
 ## keybinds (visual mode)
 | Key           | Description               |

@@ -75,6 +75,7 @@ leader: <space>
 | ctrl-w d      | diagnostic          |
 | gcc           | comment current line|
 | gc            | add comment         |
+| F4            | code action         |
 
 ## keybinds (visual mode)
 | Key           | Description               |

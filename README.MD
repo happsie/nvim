@@ -21,6 +21,7 @@
 4. open `packer.lua` in nvim and run `:so` 
 5. run `:PackerSync` when inside the `packer.lua`
 6. run `:TSUpdate` 
+7. Make sure ripgrep is installed on the system
 
 
 ## keybinds (normal mode)

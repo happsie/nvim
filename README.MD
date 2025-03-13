@@ -32,6 +32,7 @@ leader: <space>
 | Ctrl-e        | open harpoon        |
 | Space-pv      | project files       |
 | Space-pf      | search files        |
+| Space-ps      | grep in files       |
 | ctrl-p        | git files           |
 | %             | create file         |
 | d             | create dir          |

@@ -79,6 +79,7 @@ leader: <space>
 | gcc           | comment current line|
 | gc            | add comment         |
 | F4            | code action         |
+| {n}gt        | go to tab number    |
 
 ## keybinds (visual mode)
 | Key           | Description               |
@@ -105,3 +106,5 @@ leader: <space>
 | :split        | horizontal win split|
 | :vsplit       | vertical win split  |
 | :close        | close window        |
+| :tabnew       | open as tab         |
+| :tabclose     | close tab           |

@@ -6,6 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'sindrets/diffview.nvim'
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
@@ -23,25 +24,17 @@ return require('packer').startup(function(use)
   use( 'tpope/vim-fugitive' )
   use( 'ThePrimeagen/vim-be-good' )
 
+  -- LSP Support
+  use 'neovim/nvim-lspconfig'
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-        -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
-        'williamboman/mason.nvim',
-        run = function()
-            pcall(vim.cmd, 'MasonUpdate')
-        end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    'williamboman/mason.nvim',
+    run = function() pcall(vim.cmd, 'MasonUpdate') end,
+  }
+  use 'williamboman/mason-lspconfig.nvim'
 
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
-        }
-    }
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
 
 end)

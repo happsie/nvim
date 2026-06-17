@@ -7,18 +7,20 @@ require("mason-lspconfig").setup({
 -- Shared on_attach keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
-    local opts = { buffer = ev.buf, remap = false }
+    local function map(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, remap = false, desc = desc })
+    end
 
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-    vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    map("n", "gd", vim.lsp.buf.definition, "LSP: go to definition")
+    map("n", "K", vim.lsp.buf.hover, "LSP: hover docs")
+    map("n", "<leader>vws", vim.lsp.buf.workspace_symbol, "LSP: workspace symbols")
+    map("n", "<leader>vd", vim.diagnostic.open_float, "LSP: diagnostic float")
+    map("n", "[d", vim.diagnostic.goto_next, "LSP: next diagnostic")
+    map("n", "]d", vim.diagnostic.goto_prev, "LSP: prev diagnostic")
+    map("n", "<leader>vca", vim.lsp.buf.code_action, "LSP: code action")
+    map("n", "<leader>vrr", vim.lsp.buf.references, "LSP: references")
+    map("n", "<leader>vrn", vim.lsp.buf.rename, "LSP: rename")
+    map("i", "<C-h>", vim.lsp.buf.signature_help, "LSP: signature help")
   end,
 })
 

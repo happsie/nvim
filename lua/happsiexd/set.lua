@@ -34,3 +34,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
 
 --vim.opt.colorcolumn = "80"
+
+vim.filetype.add({
+    extension = {
+        MD = "markdown",
+        md = "markdown",
+    },
+})

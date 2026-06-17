@@ -37,7 +37,10 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope.nvim",
         version = "0.1.x",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        },
     },
 
     {
@@ -88,7 +91,7 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             options = {
-                theme = "catppuccin",
+                theme = "catppuccin-macchiato",
                 section_separators = "",
                 component_separators = "",
                 icons_enabled = true,
@@ -114,6 +117,47 @@ require("lazy").setup({
         version = "*",
         event = "InsertEnter",
         opts = {},
+    },
+
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            preset = "modern",
+        },
+    },
+
+    {
+        "RRethy/vim-illuminate",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            require("illuminate").configure({
+                providers = { "lsp", "regex" },
+                delay = 100,
+            })
+            vim.keymap.set("n", "<a-n>", function() require("illuminate").goto_next_reference() end,
+                { desc = "Next reference of word" })
+            vim.keymap.set("n", "<a-p>", function() require("illuminate").goto_prev_reference() end,
+                { desc = "Prev reference of word" })
+        end,
+    },
+
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        lazy = false,
+        opts = {},
+    },
+
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        event = { "BufReadPost", "BufNewFile" },
+        opts = {},
+        keys = {
+            { "]t", function() require("todo-comments").jump_next() end, desc = "Next TODO comment" },
+            { "[t", function() require("todo-comments").jump_prev() end, desc = "Prev TODO comment" },
+        },
     },
 
     {

@@ -320,6 +320,40 @@ Files behave like a buffer:
 
 ---
 
+## Which-key
+
+A popup appears ~1s after pressing any key prefix (e.g. `<space>`, `g`, `<C-w>`, `[`)
+showing every binding starting with that prefix. No keymaps to learn — just pause
+mid-chord and read the hints.
+
+`:WhichKey` opens the full list. Useful when you can't remember a binding.
+
+---
+
+## Search references (vim-illuminate)
+
+Highlights every other occurrence of the symbol under the cursor (like IntelliJ).
+
+| Key            | Description                                      |
+| -------------- | ------------------------------------------------ |
+| `<A-n>`        | jump to next reference of word under cursor      |
+| `<A-p>`        | jump to previous reference                       |
+
+---
+
+## TODO comments
+
+`TODO:` / `FIXME:` / `HACK:` / `NOTE:` / `WARN:` / `PERF:` get highlighted in the buffer.
+
+| Key / Cmd        | Description                                    |
+| ---------------- | ---------------------------------------------- |
+| `]t` / `[t`      | jump to next / prev TODO comment               |
+| `:TodoTelescope` | search all TODOs project-wide via telescope    |
+| `:TodoQuickFix`  | dump all TODOs to the quickfix list            |
+| `:TodoLocList`   | same but to location list                      |
+
+---
+
 ## Auto-pairs (mini.pairs)
 
 Types the closing character when you type the opening one — `(` → `(|)`,

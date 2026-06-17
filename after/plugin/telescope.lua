@@ -1,3 +1,18 @@
+require("telescope").setup({
+    defaults = {
+        file_ignore_patterns = {
+            "node_modules/",
+            "%.git/",
+            "dist/",
+            "build/",
+            "target/",
+            "%.lock",
+            "%.min%.js",
+            "%.map",
+        },
+    },
+})
+
 pcall(require("telescope").load_extension, "fzf")
 
 local builtin = require('telescope.builtin')

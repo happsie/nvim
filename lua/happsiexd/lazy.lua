@@ -89,19 +89,29 @@ require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            options = {
-                theme = "catppuccin-macchiato",
-                section_separators = "",
-                component_separators = "",
-                icons_enabled = true,
-            },
-            sections = {
-                lualine_c = {
-                    { "filename", path = 1 },
+        config = function()
+            local function pepe()
+                local d = vim.diagnostic.count(0)
+                local errors = d[vim.diagnostic.severity.ERROR] or 0
+                local warns = d[vim.diagnostic.severity.WARN] or 0
+                if errors > 0 then return "🤬 feels bad man" end
+                if warns > 0 then return "😬 feels weird man" end
+                return "🐸 feels good man"
+            end
+
+            require("lualine").setup({
+                options = {
+                    theme = "catppuccin-macchiato",
+                    section_separators = "",
+                    component_separators = "",
+                    icons_enabled = true,
                 },
-            },
-        },
+                sections = {
+                    lualine_c = { { "filename", path = 1 } },
+                    lualine_x = { pepe, "encoding", "filetype" },
+                },
+            })
+        end,
     },
 
     {

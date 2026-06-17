@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- LSP server configs using vim.lsp.config (Neovim 0.11 native)
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 vim.lsp.config("ts_ls", {
   capabilities = capabilities,
@@ -44,29 +44,42 @@ vim.lsp.config("lua_ls", {
   },
 })
 
+-- jdtls (installed via mason)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function(ev)
+    local root = vim.fs.root(ev.buf, { "pom.xml", "build.gradle", "build.gradle.kts", ".git" })
+    if root then
+      local workspace = vim.fn.expand("~/.local/share/jdtls-workspace/") .. vim.fn.fnamemodify(root, ":t")
+      local settings = {
+        java = {
+          configuration = {
+            runtimes = {
+              {
+                name = "JavaSE-21",
+                path = "/opt/homebrew/opt/java/libexec/openjdk.jdk/Contents/Home",
+                default = true,
+              },
+            },
+          },
+        },
+      }
+      vim.lsp.start({
+        name = "jdtls",
+        cmd = { "jdtls", "--data", workspace },
+        root_dir = root,
+        capabilities = capabilities,
+        settings = settings,
+        on_init = function(client)
+          client.notify("workspace/didChangeConfiguration", { settings = settings })
+        end,
+      })
+    end
+  end,
+})
+
 -- Enable the servers
 vim.lsp.enable({ "ts_ls", "gopls", "lua_ls" })
-
--- nvim-cmp setup
-local cmp = require("cmp")
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-  }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-  }),
-})
 
 -- Diagnostic config
 vim.diagnostic.config({

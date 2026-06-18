@@ -171,7 +171,38 @@ require("lazy").setup({
     },
 
     {
+        "ThePrimeagen/99",
+        config = function()
+            local _99 = require("99")
+            _99.setup({
+                provider = _99.Providers.ClaudeCodeProvider,
+                model = "claude-sonnet-4-5",
+                tmp_dir = "./tmp",
+                md_files = { "AGENT.md", "CLAUDE.md" },
+            })
+
+            vim.keymap.set("v", "<leader>9v", function() _99.visual() end,
+                { desc = "99: replace visual selection with prompt" })
+            vim.keymap.set("n", "<leader>9s", function() _99.search() end,
+                { desc = "99: search project with prompt" })
+            vim.keymap.set("n", "<leader>9o", function() _99.open() end,
+                { desc = "99: open last interaction" })
+            vim.keymap.set("n", "<leader>9x", function() _99.stop_all_requests() end,
+                { desc = "99: stop all in-flight requests" })
+            vim.keymap.set("n", "<leader>9l", function() _99.view_logs() end,
+                { desc = "99: view logs" })
+            vim.keymap.set("n", "<leader>9m", function()
+                require("99.extensions.telescope").select_model()
+            end, { desc = "99: select model (telescope)" })
+            vim.keymap.set("n", "<leader>9p", function()
+                require("99.extensions.telescope").select_provider()
+            end, { desc = "99: select provider (telescope)" })
+        end,
+    },
+
+    {
         "github/copilot.vim",
+        enabled = false,
         init = function()
             vim.g.copilot_no_tab_map = true
         end,

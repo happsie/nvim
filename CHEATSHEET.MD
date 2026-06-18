@@ -383,6 +383,30 @@ Copilot is bound to control/meta keys so the two don't clash.
 
 ---
 
+## 99 (agentic AI in Neovim)
+
+Drives the `claude` CLI under the hood (default model `claude-sonnet-4-5`).
+`search` is the main entry point — agent investigates, results land in the quickfix list.
+
+| Key            | Description                                      |
+| -------------- | ------------------------------------------------ |
+| `<leader>9s`   | search project with a prompt (→ quickfix)        |
+| `<leader>9v` *(visual)*| replace selection with AI-generated output |
+| `<leader>9o`   | open last interaction (search/vibe result)       |
+| `<leader>9x`   | stop all in-flight requests (kills `claude`)     |
+| `<leader>9l`   | view logs of last run                            |
+| `<leader>9m`   | switch model (telescope picker, session-scoped)  |
+| `<leader>9p`   | switch provider (resets model to its default)    |
+
+In the prompt buffer:
+- `@` → fuzzy-pick a project file to inject as context
+- `#` → reference a rule (e.g. `SKILL.md`) to inject
+
+Project context is auto-injected from `AGENT.md` and `CLAUDE.md` walking up from
+the current file's directory to the project root.
+
+---
+
 ## Undotree
 
 | Key            | Description                                      |
